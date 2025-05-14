@@ -438,12 +438,12 @@ def coupon_check(request, id):
                 phone_number=user.contact_phonenumber, 
                 email=user.contact_email
             )
-            messages.success(request, "Coupon applied successfully!")
 
             # Redirect with correct variable name
             request.session['discount_percentage'] = coupon.discount_percentage
             coupon.status = 'Expired'
             coupon.save()
+            messages.success(request, "Coupon applied successfully!")
             
             return redirect(reverse('altruisty:payment', kwargs={'id': user.user_id}))
 
@@ -634,3 +634,7 @@ def DetailsPage(request,heading):
         service_details = []
 
     return render(request, 'details.html', {'service_details': service_details, 'heading': heading})
+
+
+
+

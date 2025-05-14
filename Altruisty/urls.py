@@ -22,5 +22,6 @@ urlpatterns=[
     path('payment/qr/<str:price>/', views.upi_qr_view, name='upi_qr'),
     path('payment/submit/<str:id>/', views.submit_payment, name='submit_payment'),
     path("coupon-check/<str:id>/", views.coupon_check, name="coupon_check"),
+
    
     ]

@@ -1367,24 +1367,6 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
     <div class="overlay-switcher-close"></div>
 
 
-    <script>
-        const couponInput = document.getElementById("couponInput");
-        const amountElement = document.getElementById("amount");
-    
-        let timeoutId;
-    
-        couponInput.addEventListener("input", function () {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-                const code = couponInput.value.trim().toUpperCase();
-                if (code === "ARTPI400") {
-                    amountElement.textContent = "₹400";
-                } else {
-                    amountElement.textContent = "";
-                }
-            }, 1000); // 1 second after typing stops
-        });
-    </script>
 
 
 
@@ -1421,7 +1403,9 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
 
 
     </script>
-    <script>
+
+
+    <!-- <script>
         document.getElementById("viewQRButton").addEventListener("click", function() {
             let couponValue = document.getElementById("couponInput").value.trim();
             if (couponValue == "ARTPI500") {
@@ -1456,7 +1440,52 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
         document.getElementById("closeQRPopup").addEventListener("click", function() {
             document.getElementById("qrPopup").style.display = "none";
         });
+    </script> -->
+
+    <script>
+        document.getElementById("viewQRButton").addEventListener("click", function () {
+            let couponValue = document.getElementById("couponInput").value.trim();
+            let qrImage = document.getElementById("qrImage");
+            let amount = document.getElementById("amount");
+            let popup = document.getElementById("qrPopup");
+    
+            // Default values
+            let finalAmount = 1000;
+            let imagePath = "{% static 'assets/upi_qr1000.png' %}";
+    
+            // Check for specific coupon codes
+            switch (couponValue) {
+                case "ARTPI500":
+                    finalAmount = 500;
+                    imagePath = "{% static 'assets/upi_500.png' %}";
+                    break;
+                case "ARTPI600":
+                    finalAmount = 400;
+                    imagePath = "{% static 'assets/upi_400.png' %}";
+                    break;
+                case "ARTPI700":
+                    finalAmount = 300;
+                    imagePath = "{% static 'assets/upi_300.png' %}";
+                    break;
+                case "ARTPI400":
+                    finalAmount = 600;
+                    imagePath = "{% static 'assets/upi_600.png' %}"; // Add this image in your static files
+                    break;
+            }
+    
+            // Update DOM
+            amount.innerText = finalAmount;
+            qrImage.src = imagePath;
+            popup.style.display = "block";
+        });
+    
+        document.getElementById("closeQRPopup").addEventListener("click", function () {
+            document.getElementById("qrPopup").style.display = "none";
+        });
     </script>
+    
+
+    
     <script>
         // client slider
         if ('.client-slider-active') {
