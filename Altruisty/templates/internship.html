@@ -1319,13 +1319,14 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
                                         <input type='text' required name="studentreason"  />
                                         <label>Why we need to hire you</label>
                                     </div>
+
                                     <div class="col-12 d-md-flex  justify-content-evenly ">
                                         <div class="input-field col-md-12 col-12">
                                             <input type='text' placeholder="only if provided" name="coupon"  id="couponInput" />
                                             <label>Coupon code</label>
                                         </div>
-                                        
                                     </div>
+
                                     <div class="input-field ">
                                         <input type='text' required name="drive_link" placeholder="Enter your payment Screenshot Image Drive Link" />
                                         <!-- <label>Enter your payment Screenshot Image Drive Link</label> -->
@@ -1334,7 +1335,6 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
                                         <input type='text' required name="transaction_id" />
                                         <label>Transaction id</label>
                                     </div>
-                                    
                                 </div>
 
 
@@ -1344,8 +1344,6 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
                                  data-on-scroll="0">
                                  <button class="wc-btn wc-btn-primary col-6" type="button" id="viewQRButton">pay here</button>
                                 <input type="submit" value="submit" class="wc-btn wc-btn-primary btn-text-flip ai-fill-btn" />
-
-
                             </div>
 
 
@@ -1367,6 +1365,26 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
         </div>
     </main>
     <div class="overlay-switcher-close"></div>
+
+
+    <script>
+        const couponInput = document.getElementById("couponInput");
+        const amountElement = document.getElementById("amount");
+    
+        let timeoutId;
+    
+        couponInput.addEventListener("input", function () {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                const code = couponInput.value.trim().toUpperCase();
+                if (code === "ARTPI400") {
+                    amountElement.textContent = "₹400";
+                } else {
+                    amountElement.textContent = "";
+                }
+            }, 1000); // 1 second after typing stops
+        });
+    </script>
 
 
 
