@@ -1264,36 +1264,94 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
                                         </div>
                                     </div>
                                     <div class="col-12 d-md-flex justify-content-evenly mt-2">
-                                        <div class="col-md-12 col-12">
+                                        <div class="col-md-5 col-12">
                                             <label for="internship_type" class="">Internship Type</label>
                                             <div class="input-field">
-                                                <select name="internship_type" class="form-control">
-                                                    <option value="Web Development-1month">Project Internship</option>
-                                                    <option value="IOT-1month">Training Internship </option>
+                                                <select name="internship_type" id="internshipType" class="form-control">
+                                                    <option value="individual">Individual</option>
+                                                    <option value="group">Group</option>
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <!-- Newly Added -->
+
+                                        <div class="col-md-5 col-12">
+                                            <label for="internship_type" class="">Internship Mode</label>
+                                            <div class="input-field">
+                                                <select name="internship_type" id="internshipMode" class="form-control">
+                                                    <option value="Online">Online</option>
+                                                    <option value="Offline">Offline</option>
+                                                    <option value="Remote">Remote</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Newly Added -->
+
                                     </div>
-                                    <div class="col-12 d-md-flex justify-content-evenly mt-2">
+
+
+
+                                    <!-- <div class="col-12 d-md-flex justify-content-evenly mt-2">
                                         <div class="col-md-12 col-12">
                                             <label for="domain" class="">Domain and Duration</label>
+                                            <div class="input-field"> -->
+
+                                                <!-- <select name="domain_duration" class="form-control"> -->
+                                                    <!-- <option value="Web Development-1month">Web Development - 1 month</option> -->
+                                                    <!-- <option value="IOT-1month">IOT - 1 month</option> -->
+                                                    <!-- <option value="UI&UX-1month">UI&UX - 1 month</option> -->
+                                                    <!-- <option value="Gen-AI-1month">Gen-AI-1month</option> -->
+                                                    <!-- <option value="Data Analytics-1month">Data Analytics - 1 month</option> -->
+                                                    <!-- <option value="Mern Full Stack Development-2month">Mern Full Stack Development-2month</option> -->
+                                                    <!-- <option value="Mean Full Stack Development-2month">Mean Full Stack Development-2month</option> -->
+                                                    <!-- <option value="Python Full Stack Development-2month">Python Full Stack Development-2month</option> -->
+                                                    <!-- <option value="Java Full Stack Development-2month">Java Full Stack Development-2month</option> -->
+                                                    <!-- <option value="App Development-2month">App Development-2month</option> -->
+                                                <!-- </select> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+
+                                    <div class="col-12 d-md-flex justify-content-evenly mt-2">
+                                        <div class="col-md-12 col-12">
+                                            <label for="domain" class="">Domain</label>
                                             <div class="input-field">
 
                                                 <select name="domain_duration" class="form-control">
-                                                    <option value="Web Development-1month">Web Development - 1 month</option>
-                                                    <!-- <option value="IOT-1month">IOT - 1 month</option> -->
-                                                    <option value="UI&UX-1month">UI&UX - 1 month</option>
-                                                    <option value="Gen-AI-1month">Gen-AI-1month</option>
-                                                    <!-- <option value="Data Analytics-1month">Data Analytics - 1 month</option> -->
-                                                    <option value="Mern Full Stack Development-2month">Mern Full Stack Development-2month</option>
-                                                    <!-- <option value="Mean Full Stack Development-2month">Mean Full Stack Development-2month</option> -->
-                                                    <option value="Python Full Stack Development-2month">Python Full Stack Development-2month</option>
-                                                    <!-- <option value="Java Full Stack Development-2month">Java Full Stack Development-2month</option> -->
-                                                    <option value="App Development-2month">App Development-2month</option>
+                                                    <option value="ai/ml">AI & ML</option>
+                                                    <option value="app-development">App Development</option>
+                                                    <option value="web-development">Web Development</option>
+                                                    <option value="mern-stack">Mern Full Stack Development</option>
+                                                    <option value="python-stack">Python Full Stack Development</option>
+                                                    <option value="ui/ux">UI/UX</option>
                                                 </select>
+
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-12 d-md-flex justify-content-evenly mt-2">
+                                        <div class="col-md-12 col-12">
+                                            <label for="duration" class="">Duration</label>
+                                            <div class="input-field">
+
+                                                <select name="domain_duration" id="duration" class="form-control">
+                                                    <option value="15-days">15 Days</option>
+                                                    <option value="1-month">1 Month</option>
+                                                    <option value="2-month">2 Months</option>
+                                                    <option value="3-month">3 Months</option>
+                                                    <option value="6-month">6 Months</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
                                     <div class="col-12 d-md-flex  justify-content-evenly  ">
 
                                         <div class="input-field col-md-3 col-12 ">
@@ -1404,54 +1462,61 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
 
     </script>
 
-
-    <!-- <script>
-        document.getElementById("viewQRButton").addEventListener("click", function() {
-            let couponValue = document.getElementById("couponInput").value.trim();
-            if (couponValue == "ARTPI500") {
-                let qrImage = document.getElementById("qrImage");
-                let amount = document.getElementById("amount");
-                amount.innerText = 500
-                qrImage.src = "{% static 'assets/upi_500.png' %}";  // Adjust the image path as needed
-                document.getElementById("qrPopup").style.display = "block";
-            }else if(couponValue == "ARTPI600"){
-                let qrImage = document.getElementById("qrImage");
-                let amount = document.getElementById("amount");
-                amount.innerText = 400
-                qrImage.src = "{% static 'assets/upi_400.png' %}";  // Adjust the image path as needed
-                document.getElementById("qrPopup").style.display = "block";
-            } 
-            else if(couponValue == "ARTPI700"){
-                let qrImage = document.getElementById("qrImage");
-                let amount = document.getElementById("amount");
-                amount.innerText = 300
-                qrImage.src = "{% static 'assets/upi_300.png' %}";  // Adjust the image path as needed
-                document.getElementById("qrPopup").style.display = "block";
-            } 
-            else {
-                let qrImage = document.getElementById("qrImage");
-                let amount = document.getElementById("amount");
-                amount.innerText = 1000
-                qrImage.src = "{% static 'assets/upi_qr1000.png' %}";  // Adjust the image path as needed
-                document.getElementById("qrPopup").style.display = "block";
-            }
-        });
-    
-        document.getElementById("closeQRPopup").addEventListener("click", function() {
-            document.getElementById("qrPopup").style.display = "none";
-        });
-    </script> -->
-
     <script>
         document.getElementById("viewQRButton").addEventListener("click", function () {
+            const type = document.getElementById("internshipType").value;
+            const mode = document.getElementById("internshipMode").value;
+            const duration = document.getElementById("duration").value;
             let couponValue = document.getElementById("couponInput").value.trim();
             let qrImage = document.getElementById("qrImage");
             let amount = document.getElementById("amount");
             let popup = document.getElementById("qrPopup");
-    
             // Default values
             let finalAmount = 1000;
             let imagePath = "{% static 'assets/upi_qr1000.png' %}";
+
+
+
+            if (mode === "Online") {
+                if (duration === "15-days") {
+                    finalAmount = 350;
+                    imagePath = "{% static 'assets/upi_350.png' %}";
+                } else if (duration === "1-month") {
+                    finalAmount = (type === "individual") ? 550 : 400;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_550.png' %}" : "{% static 'assets/upi_400.png' %}";
+                } else if (duration === "2-month") {
+                    finalAmount = (type === "individual") ? 800 : 600;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_800.png' %}" : "{% static 'assets/upi_600.png' %}";
+                } else if (duration === "3-month") {
+                    finalAmount = (type === "individual") ? 1200 : 800;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_1200.png' %}" : "{% static 'assets/upi_800.png' %}";
+                } else if (duration === "6-month") {
+                    finalAmount = (type === "individual") ? 3000 : 2500;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_3000.png' %}" : "{% static 'assets/upi_2500.png' %}";
+                }
+            }
+
+            // Offline mode conditions
+            if (mode === "Offline") {
+                if (duration === "15-days") {
+                    finalAmount = (type === "individual") ? 450 : 350;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_450.png' %}" : "{% static 'assets/upi_350.png' %}";
+                } else if (duration === "1-month") {
+                    finalAmount = (type === "individual") ? 650 : 500;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_650.png' %}" : "{% static 'assets/upi_500.png' %}";
+                } else if (duration === "2-month") {
+                    finalAmount = (type === "individual") ? 1000 : 800;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_1000.png' %}" : "{% static 'assets/upi_800.png' %}";
+                } else if (duration === "3-month") {
+                    finalAmount = (type === "individual") ? 1500 : 1200;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_1500.png' %}" : "{% static 'assets/upi_1200.png' %}";
+                } else if (duration === "6-month") {
+                    finalAmount = (type === "individual") ? 4500 : 3500;
+                    imagePath = (type === "individual") ? "{% static 'assets/upi_4500.png' %}" : "{% static 'assets/upi_3500.png' %}";
+                }
+            }
+    
+
     
             // Check for specific coupon codes
             switch (couponValue) {
@@ -1483,6 +1548,14 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
             document.getElementById("qrPopup").style.display = "none";
         });
     </script>
+
+
+
+
+
+
+
+
     
 
     
