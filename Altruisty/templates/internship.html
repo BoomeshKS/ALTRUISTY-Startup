@@ -1179,7 +1179,7 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
 
 
                         </form> {% endcomment %}
-                        <form method="POST" action="https://script.google.com/macros/s/AKfycbxvXGrsRwGrXLB085-51ebEBfcMuGWgt2WQ66g7plS2hrxwsXKXB6Mwggzhwzo5qh7B/exec" id="dform">
+                        <form method="POST" action="https://script.google.com/macros/s/AKfycbxvXGrsRwGrXLB085-51ebEBfcMuGWgt2WQ66g7plS2hrxwsXKXB6Mwggzhwzo5qh7B/exec" id="dform" >
                             {% csrf_token  %}
                             <div class="container">
                                 <div class="row">
@@ -1460,7 +1460,7 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
     <script src="{% static 'assets/js/error-handling.js' %}"></script>
     <script src="{% static 'assets/js/offcanvas.js' %}"></script>
 
-    <script>
+    <!-- <script>
 
 
         const url = "https://script.google.com/macros/s/AKfycbx9AHMN5-Y_tTlF3UiihWN_932S2wJXrwovA71yiHKQlDb7JrOe6fMH002IwF3rSvem/exec"
@@ -1475,7 +1475,46 @@ Day 3: Behance Upload  " data-fee="₹1000 (Up to 70% off with valid promotional
 
 
 
+    </script> -->
+
+
+    <script>
+        const url = "https://script.google.com/macros/s/AKfycbx9AHMN5-Y_tTlF3UiihWN_932S2wJXrwovA71yiHKQlDb7JrOe6fMH002IwF3rSvem/exec";
+        const form = document.forms['dform'];
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            // Create a new FormData object from the form
+            const formData = new FormData(form);
+
+            // Get current date and time
+            const now = new Date();
+            const registeredDate = now.toLocaleDateString('en-GB'); // Format: DD/MM/YYYY
+            const registeredTime = now.toLocaleTimeString('en-US'); 
+            
+            // Append them to FormData
+            formData.append('registered_date', registeredDate);
+            formData.append('registered_time', registeredTime);
+
+            // Submit the data
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                alert("Thank you! Your form was submitted.");
+            } catch (error) {
+                console.error("Submission error:", error);
+            }
+        });
     </script>
+
+
+
+
+
 
     <script>
         document.getElementById("viewQRButton").addEventListener("click", function () {
